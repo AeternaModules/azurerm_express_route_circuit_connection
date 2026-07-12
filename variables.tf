@@ -9,15 +9,19 @@ Required:
 Optional:
     - address_prefix_ipv6
     - authorization_key
+    - authorization_key_key_vault_id (alternative to authorization_key - read from Key Vault instead)
+    - authorization_key_key_vault_secret_name (alternative to authorization_key - read from Key Vault instead)
 EOT
 
   type = map(object({
-    address_prefix_ipv4 = string
-    name                = string
-    peer_peering_id     = string
-    peering_id          = string
-    address_prefix_ipv6 = optional(string)
-    authorization_key   = optional(string)
+    address_prefix_ipv4                     = string
+    name                                    = string
+    peer_peering_id                         = string
+    peering_id                              = string
+    address_prefix_ipv6                     = optional(string)
+    authorization_key                       = optional(string)
+    authorization_key_key_vault_id          = optional(string)
+    authorization_key_key_vault_secret_name = optional(string)
   }))
   validation {
     condition = alltrue([
